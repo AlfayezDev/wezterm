@@ -57,7 +57,10 @@ config.keys = {
 	{ key = "t", mods = "LEADER", action = act.ShowTabNavigator },
 	-- Key table for moving tabs around
 	{ key = "m", mods = "LEADER", action = act.ActivateKeyTable({ name = "move_tab", one_shot = false }) },
-
+	-- Make Option-Left equivalent to Alt-b which many line editors interpret as backward-word
+	{ key = "LeftArrow", mods = "OPT", action = act({ SendString = "\x1bb" }) },
+	-- Make Option-Right equivalent to Alt-f; forward-word
+	{ key = "RightArrow", mods = "OPT", action = act({ SendString = "\x1bf" }) },
 	-- Lastly, workspace
 	{ key = "w", mods = "LEADER", action = act.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }) },
 }
